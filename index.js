@@ -2,9 +2,10 @@
 
 module.exports = function(request, options) {
   return function metricLogger (req, next) {
-    request.metric.profile("http-request");
+    var metric = request.metric.context({url: req.url, method: req.method}).use(options);
+    metric.profile("http-request-time");
     next(null, function(res, prev) {
-      request.metric.profile("http-request", options);
+      metric.profile("http-request-time", {code: res.status, lib: "superagent"});
       prev();
     });
   }
