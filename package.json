@@ -1,0 +1,25 @@
+{
+  "name": "superagent-metric-logger",
+  "version": "0.1.0",
+  "description": "HTTP call profiling for superagnet ",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/superagent-metric-logger.git"
+  },
+  "author": "Cameron Bytheway <cameron@nujii.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "f13ee36b77f31ff2286f1874f9ebc7ef8f1c1b11",
+  "devDependencies": {
+    "should": "~1.2.2",
+    "connect-metric": "~0.1.0",
+    "superagent": "~0.13.0",
+    "mocha": "~1.8.2",
+    "supertest": "~0.5.1",
+    "connect": "~2.7.3"
+  }
+}
