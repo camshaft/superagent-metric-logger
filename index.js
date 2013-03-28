@@ -1,11 +1,26 @@
+/**
+ * Module dependencies
+ */
+var metric = require("metric-log");
 
+module.exports = function(parent, options, metricName) {
+  if (typeof options === "string") {
+    metricName = options;
+    options = {};
+  };
 
-module.exports = function(request, options) {
+  var root = metric.context(options);
+
+  if(parent) root.use(parent);
+
   return function metricLogger (req, next) {
-    var metric = request.metric.context({url: req.url, method: req.method}).use(options);
-    metric.profile("http-request-time");
+    var end = root.profile("reponse_time", {
+      api: metricName || req.url,
+      method:req.method
+    });
+
     next(null, function(res, prev) {
-      metric.profile("http-request-time", {code: res.status, lib: "superagent"});
+      end({code: res.status, lib: "superagent"});
       prev();
     });
   }

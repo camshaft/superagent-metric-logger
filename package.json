@@ -13,7 +13,9 @@
   "author": "Cameron Bytheway <cameron@nujii.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "f13ee36b77f31ff2286f1874f9ebc7ef8f1c1b11",
+  "dependencies": {
+    "metric-log": "~0.2.0"
+  },
   "devDependencies": {
     "should": "~1.2.2",
     "connect-metric": "~0.1.0",
