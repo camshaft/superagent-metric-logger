@@ -14,7 +14,7 @@ module.exports = function(parent, options, metricName) {
   if(parent) root.use(parent);
 
   return function metricLogger (req, next) {
-    var end = root.profile("reponse_time", {
+    var end = root.profile("response_time", {
       api: metricName || req.url,
       method:req.method
     });
